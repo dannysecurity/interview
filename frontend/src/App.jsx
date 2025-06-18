@@ -16,16 +16,7 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Projectile Simulator</h1>
-      <InputForm onStart={handleStart} />
-      {simulationData && (
-        <div data-testid="output">
-          <p>Speed: {simulationData.speed}</p>
-          <p>Angle: {simulationData.angle}</p>
-          <FlightCanvas trajectory={trajectory} width={600} height={300} />
-        </div>
-      )}
+
     </div>
   );
 }

@@ -1,9 +1,88 @@
 .App {
-  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+}
+
+.card {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  min-width: 320px;
+  max-width: 90vw;
+}
+
+h1 {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #22223b;
+  text-align: center;
 }
 
 form > div {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  color: #4a4e69;
+  margin-bottom: 0.5rem;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #c9c9c9;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border 0.2s;
+  margin-top: 0.25rem;
+}
+
+input[type="number"]:focus {
+  border: 1.5px solid #4f8cff;
+  outline: none;
+}
+
+button[type="submit"] {
+  background: linear-gradient(90deg, #4f8cff 0%, #38b6ff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(79,140,255,0.08);
+  transition: background 0.2s, transform 0.1s;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(90deg, #38b6ff 0%, #4f8cff 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.error {
+  color: #e63946;
+  font-size: 0.95rem;
+  margin-left: 0.5rem;
+}
+
+[data-testid="output"] {
+  margin-top: 2rem;
+  background: #f1f3f8;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1rem;
+  color: #22223b;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  text-align: center;
 }
 
 canvas {
