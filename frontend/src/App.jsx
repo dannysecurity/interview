@@ -12,14 +12,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Projectile Simulator</h1>
-      <InputForm onStart={handleStart} />
-      {simulationData && (
-        <div data-testid="output">
-          <p>Speed: {simulationData.speed}</p>
-          <p>Angle: {simulationData.angle}</p>
-        </div>
-      )}
+      <div className="card">
+        <h1>Projectile Simulator</h1>
+        <InputForm onStart={handleStart} />
+        {simulationData && (
+          <div data-testid="output">
+            <p>Speed: {simulationData.speed}</p>
+            <p>Angle: {simulationData.angle}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
