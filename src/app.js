@@ -25,17 +25,29 @@ class App {
     computeTrajectory(speed, angle, spin) {
         const g = 9.81;
         const dt = 0.02;
-        const vx = speed * Math.cos(angle);
+        const magnusCoeff = 0.0004;
         const spinRps = spin / 60;
-        const liftCoeff = 0.0004;
-        const aLift = liftCoeff * spinRps * vx;
-        const points = [];
+
+        let vx = speed * Math.cos(angle);
+        let vy = speed * Math.sin(angle);
+
+        let x = 0;
+        let y = 0;
         let t = 0;
+        const points = [];
+
         while (true) {
-            const x = vx * t;
-            const y = speed * Math.sin(angle) * t + 0.5 * aLift * t * t - 0.5 * g * t * t;
+            points.push({ x, y });
             if (y < 0 && t > 0) break;
-            points.push({x, y});
+
+            const aMagnusX = -magnusCoeff * spinRps * vy;
+            const aMagnusY = magnusCoeff * spinRps * vx;
+
+            vx += aMagnusX * dt;
+            vy += (aMagnusY - g) * dt;
+
+            x += vx * dt;
+            y += vy * dt;
             t += dt;
         }
         return points;
