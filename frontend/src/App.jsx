@@ -8,11 +8,11 @@ function App() {
   const [simulationData, setSimulationData] = useState(null);
   const [trajectory, setTrajectory] = useState([]);
 
-  const handleStart = ({ speed, angle }) => {
+  const handleStart = ({ speed, angle, spin }) => {
     const theta = (angle * Math.PI) / 180;
-    const points = simulateFlight(speed, theta);
+    const points = simulateFlight(speed, theta, { spin });
     setTrajectory(points.map(({ x, y }) => ({ x, y })));
-    setSimulationData({ speed, angle });
+    setSimulationData({ speed, angle, spin });
   };
 
   return (
@@ -25,6 +25,7 @@ function App() {
             <div data-testid="output">
               <p>Speed: {simulationData.speed} m/s</p>
               <p>Angle: {simulationData.angle}°</p>
+              <p>Backspin: {simulationData.spin} rpm</p>
               <p style={{ fontSize: '0.95rem', color: '#4a4e69', marginTop: '0.5rem' }}>
                 Distances are shown in <b>yards</b>.
               </p>
