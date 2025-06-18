@@ -84,3 +84,10 @@ button[type="submit"]:hover {
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   text-align: center;
 }
+
+canvas {
+  width: 100%;
+  border: 1px solid #ddd;
+  background-color: #eef;
+  margin-top: 1rem;
+}
