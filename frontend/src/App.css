@@ -4,25 +4,28 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 50%, #fbc2eb 100%);
 }
 
 .card {
-  background: #fff;
+  background: linear-gradient(120deg, #ffffff 60%, #fbc2eb 100%);
   padding: 2.5rem 2rem;
-  border-radius: 1.25rem;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  min-width: 320px;
-  max-width: 90vw;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(79,140,255,0.15), 0 1.5px 8px rgba(251,194,235,0.12);
+  min-width: 340px;
+  max-width: 95vw;
+  border: 2.5px solid #a1c4fd;
 }
 
 h1 {
   font-family: 'Inter', Arial, sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 2.2rem;
+  font-weight: 800;
   margin-bottom: 2rem;
-  color: #22223b;
+  color: #4f8cff;
   text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #a1c4fd44;
 }
 
 form > div {
@@ -31,58 +34,71 @@ form > div {
 
 label {
   display: block;
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: #4a4e69;
   margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 input[type="number"] {
   width: 100%;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #c9c9c9;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  transition: border 0.2s;
+  padding: 0.6rem 0.85rem;
+  border: 1.5px solid #a1c4fd;
+  border-radius: 0.7rem;
+  font-size: 1.05rem;
+  transition: border 0.2s, box-shadow 0.2s;
   margin-top: 0.25rem;
+  background: #f7faff;
+  box-shadow: 0 1px 4px #a1c4fd22;
 }
 
 input[type="number"]:focus {
-  border: 1.5px solid #4f8cff;
+  border: 2px solid #fbc2eb;
   outline: none;
+  box-shadow: 0 2px 8px #fbc2eb33;
 }
 
 button[type="submit"] {
-  background: linear-gradient(90deg, #4f8cff 0%, #38b6ff 100%);
+  background: linear-gradient(90deg, #4f8cff 0%, #fbc2eb 100%);
   color: #fff;
   border: none;
-  border-radius: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: 0.7rem;
+  padding: 0.85rem 1.7rem;
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(79,140,255,0.08);
-  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 2px 12px #4f8cff33;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  letter-spacing: 0.5px;
 }
 
 button[type="submit"]:hover {
-  background: linear-gradient(90deg, #38b6ff 0%, #4f8cff 100%);
-  transform: translateY(-2px) scale(1.03);
+  background: linear-gradient(90deg, #fbc2eb 0%, #4f8cff 100%);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px #fbc2eb44;
 }
 
 .error {
   color: #e63946;
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   margin-left: 0.5rem;
+  font-weight: 600;
 }
 
 [data-testid="output"] {
   margin-top: 2rem;
-  background: #f1f3f8;
-  border-radius: 0.75rem;
+  background: linear-gradient(90deg, #e0c3fc 0%, #8ec5fc 100%);
+  border-radius: 0.9rem;
   padding: 1.25rem 1rem;
   color: #22223b;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 12px #8ec5fc33;
   text-align: center;
+  border: 1.5px solid #a1c4fd;
+}
+
+[data-testid="output"] p {
+  margin: 0.5rem 0;
+  font-size: 1.08rem;
 }
 
 canvas {
