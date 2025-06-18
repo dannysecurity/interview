@@ -4,6 +4,7 @@ class App {
         this.angleInput = document.getElementById('angleInput');
         this.playBtn = document.getElementById('playBtn');
         this.replayBtn = document.getElementById('replayBtn');
+        this.spinInput = document.getElementById('spinInput');
         this.canvas = document.getElementById('simCanvas');
         this.ctx = this.canvas.getContext('2d');
 
@@ -16,19 +17,24 @@ class App {
     getInputs() {
         return {
             speed: parseFloat(this.speedInput.value),
-            angle: parseFloat(this.angleInput.value) * Math.PI / 180
+            angle: parseFloat(this.angleInput.value) * Math.PI / 180,
+            spin: parseFloat(this.spinInput.value)
         };
     }
 
-    computeTrajectory(speed, angle) {
+    computeTrajectory(speed, angle, spin) {
         const g = 9.81;
         const dt = 0.02;
+        const vx = speed * Math.cos(angle);
+        const spinRps = spin / 60;
+        const liftCoeff = 0.0004;
+        const aLift = liftCoeff * spinRps * vx;
         const points = [];
         let t = 0;
         while (true) {
-            const x = speed * Math.cos(angle) * t;
-            const y = speed * Math.sin(angle) * t - 0.5 * g * t * t;
-            if (y < 0) break;
+            const x = vx * t;
+            const y = speed * Math.sin(angle) * t + 0.5 * aLift * t * t - 0.5 * g * t * t;
+            if (y < 0 && t > 0) break;
             points.push({x, y});
             t += dt;
         }
@@ -57,16 +63,16 @@ class App {
     }
 
     play() {
-        const {speed, angle} = this.getInputs();
-        this.lastShot = {speed, angle};
-        const points = this.computeTrajectory(speed, angle);
+        const {speed, angle, spin} = this.getInputs();
+        this.lastShot = {speed, angle, spin};
+        const points = this.computeTrajectory(speed, angle, spin);
         this.drawTrajectory(points);
         this.replayBtn.disabled = false;
     }
 
     replay() {
         if (!this.lastShot) return;
-        const points = this.computeTrajectory(this.lastShot.speed, this.lastShot.angle);
+        const points = this.computeTrajectory(this.lastShot.speed, this.lastShot.angle, this.lastShot.spin);
         this.drawTrajectory(points);
     }
 }
