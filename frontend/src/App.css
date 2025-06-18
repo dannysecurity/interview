@@ -5,3 +5,10 @@
 form > div {
   margin-bottom: 1rem;
 }
+
+canvas {
+  width: 100%;
+  border: 1px solid #ddd;
+  background-color: #eef;
+  margin-top: 1rem;
+}
